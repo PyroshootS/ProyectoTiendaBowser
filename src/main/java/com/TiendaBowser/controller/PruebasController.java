@@ -1,10 +1,10 @@
 package com.TiendaBowser.controller;
 
-import com.tienda.domain.Categoria;
-import com.tienda.domain.Producto;
-import com.tienda.service.CategoriaService;
-import com.tienda.service.ProductoService;
-import com.tienda.service.FirebaseStorageService;
+import com.TiendaBowser.domain.Categoria;
+import com.TiendaBowser.domain.Producto;
+import com.TiendaBowser.service.CategoriaService;
+import com.TiendaBowser.service.ProductoService;
+import com.TiendaBowser.service.FirebaseStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

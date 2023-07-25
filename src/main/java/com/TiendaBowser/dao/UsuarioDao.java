@@ -1,6 +1,6 @@
 package com.TiendaBowser.dao;
 
-import com.tienda.domain.Usuario;
+import com.TiendaBowser.domain.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
