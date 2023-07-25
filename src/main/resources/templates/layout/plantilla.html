@@ -14,7 +14,7 @@
 
     <body>
         <header th:fragment="header" class="header">
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0 ">
                 <div class="container">
                     <a th:href="@{/}" class="navbar-brand"><img src="https://cdn.discordapp.com/attachments/1093700708907356212/1118226800481423371/ElEsconditedeBowser.png" alt="Tienda Bowser" width="250" lenght="350"></a>
                     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -22,8 +22,8 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <ul class="navbar-nav" sec:authorize="hasRole('ROLE_VENDEDOR')">
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>                           
+                            <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
+                            <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>                           
                             <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
                                 <a class="nav-link dropdown-toggle" 
                                    data-bs-toggle="dropdown" 
@@ -39,7 +39,7 @@
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_VENDEDOR')">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.idioma}]]</a>
+                                <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.idioma}]]</a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item"  th:href="@{/(lang=es)}">ES</a></li>
                                     <li><a class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </nav>
-            <section id="main-header" class="py-2 bg-success text-white">
+            <section id="main-header" class="py-2 bg-danger text-white">
                 <div class="container">
                     <div class="row">
                         <div class="text-center">
@@ -86,8 +86,11 @@
                 <h3>Productos</h3>
             </div>
         </header>
+
+
+
         <footer th:fragment="footer"
-                class="bg-info text-white mt-5 p-2">
+                class="bg-dark text-white mt-5 p-2">
             <div class="container">
                 <div class="col">
                     <p class="lead text-center">&COPY [[#{plantilla.derechos}]]</p>
