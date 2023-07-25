@@ -1,8 +1,8 @@
 package com.TiendaBowser.service.impl;
 
-import com.tienda.dao.ProductoDao;
-import com.tienda.domain.Producto;
-import com.tienda.service.ProductoService;
+import com.TiendaBowser.dao.ProductoDao;
+import com.TiendaBowser.domain.Producto;
+import com.TiendaBowser.service.ProductoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

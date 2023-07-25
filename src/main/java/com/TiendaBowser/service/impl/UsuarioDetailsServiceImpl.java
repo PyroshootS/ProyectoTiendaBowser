@@ -1,9 +1,9 @@
 package com.TiendaBowser.service.impl;
 
-import com.tienda.dao.UsuarioDao;
-import com.tienda.domain.Rol;
-import com.tienda.domain.Usuario;
-import com.tienda.service.UsuarioDetailsService;
+import com.TiendaBowser.dao.UsuarioDao;
+import com.TiendaBowser.domain.Rol;
+import com.TiendaBowser.domain.Usuario;
+import com.TiendaBowser.service.UsuarioDetailsService;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
