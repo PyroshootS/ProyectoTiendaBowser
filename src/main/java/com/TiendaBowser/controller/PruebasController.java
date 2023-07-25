@@ -1,10 +1,9 @@
 package com.TiendaBowser.controller;
 
 import com.TiendaBowser.domain.Categoria;
-import com.TiendaBowser.domain.Producto;
 import com.TiendaBowser.service.CategoriaService;
-import com.TiendaBowser.service.ProductoService;
 import com.TiendaBowser.service.FirebaseStorageService;
+import com.TiendaBowser.service.JuegoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class PruebasController {
 
     @Autowired
-    private ProductoService productoService;
+    private JuegoService juegoService;
 
     @Autowired
     private CategoriaService categoriaService;
@@ -29,9 +28,9 @@ public class PruebasController {
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
 
-        var productos = productoService.getProductos(false);
-        model.addAttribute("productos", productos);
-        model.addAttribute("totalProductos", productos.size());
+        var juegos = juegoService.getJuegos(false);
+        model.addAttribute("juegos", juegos);
+        model.addAttribute("totalJuegos", juegos.size());
         return "/pruebas/listado";
     }
 
@@ -40,50 +39,50 @@ public class PruebasController {
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
 
-        var productos = categoriaService.getCategoria(categoria).getProductos();
-        model.addAttribute("productos", productos);
-        model.addAttribute("totalProductos", productos.size());
+        var juegos = categoriaService.getCategoria(categoria).getJuegos();
+        model.addAttribute("juegos", juegos);
+        model.addAttribute("totalJuegos", juegos.size());
         return "/pruebas/listado";
     }
 
     @GetMapping("/listado2")
     public String listado2(Model model) {
-        var productos = productoService.getProductos(false);
-        model.addAttribute("productos", productos);
-        model.addAttribute("totalProductos", productos.size());
+        var juegos = juegoService.getJuegos(false);
+        model.addAttribute("juegos", juegos);
+        model.addAttribute("totalJuegos", juegos.size());
         return "/pruebas/listado2";
     }
 
     @PostMapping("/query1")
     public String consultaQuery1(@RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup, Model model) {
-        var productos = productoService.buscaProductosPorPrecioEntre(precioInf, precioSup);
-        model.addAttribute("productos", productos);
+        var juegos = juegoService.buscaJuegosPorPrecioEntre(precioInf, precioSup);
+        model.addAttribute("juegos", juegos);
         model.addAttribute("precioInf", precioInf);
         model.addAttribute("precioSup", precioSup);
-        model.addAttribute("totalProductos", productos.size());
+        model.addAttribute("totalJuegos", juegos.size());
         return "/pruebas/listado2";
     }
     
     @PostMapping("/query2")
     public String consultaQuery2(@RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup, Model model) {
-        var productos = productoService.consultaJPQL(precioInf, precioSup);
-        model.addAttribute("productos", productos);
+        var juegos = juegoService.consultaJPQL(precioInf, precioSup);
+        model.addAttribute("juegos", juegos);
         model.addAttribute("precioInf", precioInf);
         model.addAttribute("precioSup", precioSup);
-        model.addAttribute("totalProductos", productos.size());
+        model.addAttribute("totalJuegos", juegos.size());
         return "/pruebas/listado2";
     }
     
     @PostMapping("/query3")
     public String consultaQuery3(@RequestParam(value = "precioInf") double precioInf,
             @RequestParam(value = "precioSup") double precioSup, Model model) {
-        var productos = productoService.consultaSQL(precioInf, precioSup);
-        model.addAttribute("productos", productos);
+        var juegos = juegoService.consultaSQL(precioInf, precioSup);
+        model.addAttribute("juegos", juegos);
         model.addAttribute("precioInf", precioInf);
         model.addAttribute("precioSup", precioSup);
-        model.addAttribute("totalProductos", productos.size());
+        model.addAttribute("totalJuegos", juegos.size());
         return "/pruebas/listado2";
     }
 }

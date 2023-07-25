@@ -23,7 +23,7 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <ul class="navbar-nav" sec:authorize="hasRole('ROLE_VENDEDOR')">
                             <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>                           
+                            <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/juego/listado}">[[#{plantilla.productos}]]</a></li>                           
                             <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
                                 <a class="nav-link dropdown-toggle" 
                                    data-bs-toggle="dropdown" 
@@ -83,7 +83,7 @@
                 </div>
             </section>
             <div class="text-center">
-                <h3>Productos</h3>
+                <h3>Juegos</h3>
             </div>
         </header>
 

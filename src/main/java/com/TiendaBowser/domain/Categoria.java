@@ -14,7 +14,7 @@ public class Categoria implements Serializable {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name ="id_categoria")
-    private Long idCategoria;
+    private Long  idCategoria;
     private String descripcion;
     private String rutaImagen;
     private boolean activo;
@@ -22,7 +22,7 @@ public class Categoria implements Serializable {
     
     @OneToMany
     @JoinColumn(name="id_categoria")
-    List<Producto> productos;
+    List<Juego> juegos;
 
     public Categoria() {
     }
