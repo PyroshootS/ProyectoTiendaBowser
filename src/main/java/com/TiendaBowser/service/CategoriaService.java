@@ -1,6 +1,6 @@
 package com.TiendaBowser.service;
 
-import com.tienda.domain.Categoria;
+import com.TiendaBowser.domain.Categoria;
 import java.util.List;
 
 public interface CategoriaService {

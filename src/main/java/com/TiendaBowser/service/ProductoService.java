@@ -1,6 +1,6 @@
 package com.TiendaBowser.service;
 
-import com.tienda.domain.Producto;
+import com.TiendaBowser.domain.Producto;
 import java.util.List;
 
 public interface ProductoService {
