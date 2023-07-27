@@ -7,7 +7,7 @@ public interface JuegoService {
     
     //El siguiente metodo retorna una lista con las juegos
     //Que estan es la tabla juego, todas o solo las activas
-    public List<Juego> getJuegos(boolean avtivos);
+    public List<Juego> getJuegos(boolean activos);
     
     //Aca siguen los metodos para hacer un CRUD de la tabla juego
      // Se obtiene un Juego, a partir del id de un juego
