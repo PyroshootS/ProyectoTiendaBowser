@@ -6,7 +6,54 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"> </header> 
-        
+        <section th:fragment="listadoJuegos" id="juegos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Promociones</h4>
+                            </div>
+                            <div th:if="${juegos != null and !juegos.empty}">
+                                <table class="table table-striped table-hover">
+                                    <thead class="table-dark">
+                                        <tr><th>#</th>
+                                            <th>[[#{juego.nombre}]]</th>
+                                            <th>[[#{juego.precio}]]</th>
+                                            <tbody>
+                                                <tr th:each="juego, contador : ${juegos}">
+                                                    <td>[[${contador.count}]]</td>
+                                                    <td>[[${juego.nombre}]]</td>
+                                                    <td>[[${juego.precio}]]</td>
+                                                    <td>[[${juego.existencias}]]</td>
+                                                    <td>[[${juego.precio*juego.existencias}]]</td>
+                                                    <td th:text="${juego.activo} ? 'Activa' : 'Inactiva'" />
+                                                    <td>[[${juego.categoria.descripcion}]]</td>
+                                                    <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/juego/eliminar/}+${juego.idJuego}"
+                                                                                                 class="btn btn-danger">
+                                                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
+                                                        <a th:href="@{/juego/modificar/}+${juego.idJuego}"
+                                                           class="btn btn-success">
+                                                            <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
+                                            </tbody>
+                                            </table>
+                                            </div>
+                                            <div class="text-center p-2" th:if="${juegos == null or juegos.empty}">
+                                                <span>[[#{lista.vacia}]]</span>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="card text-center bg-danger text-white mb-3 fount-35">
+                                                    <div class="card-body">
+                                                        <h3>¡TIEMPO</h3>
+                                                        <h3>LIMITADO!</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            </div>
+                                            </section>    
         <footer th:replace="~{layout/plantilla :: footer}"> </footer> 
     </body>
 </html>
