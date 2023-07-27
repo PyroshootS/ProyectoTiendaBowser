@@ -51,7 +51,7 @@
                                     <input type="text" class="form-control" name="nombre" required="true"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="consola">[[#{juego.detalle}]]</label>
+                                    <label for="consola">[[#{juego.consola}]]</label>
                                     <input type="text" class="form-control" name="consola" required="true"/>
                                 </div>
                                 <div class="mb-3">
@@ -67,7 +67,7 @@
                                     <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="ruta_imagen">[[#{juego.imagen}]]</label>
+                                    <label for="ruta_imagen">[[#{juego.ruta_imagen}]]</label>
                                     <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
                                     <img id="blah" src="#" alt="your image" height="200"/>
                                 </div>
@@ -94,7 +94,7 @@
                                 <table class="table table-striped table-hover">
                                     <thead class="table-dark">
                                         <tr><th>#</th>
-                                            <th>[[#{juego.descripcion}]]</th>
+                                            <th>[[#{juego.nombre}]]</th>
                                             <th>[[#{juego.precio}]]</th>
                                             <th>[[#{juego.existencias}]]</th>
                                             <th>[[#{juego.total}]]</th>
@@ -105,14 +105,14 @@
                                     <tbody>
                                         <tr th:each="juego, contador : ${juegos}">
                                             <td>[[${contador.count}]]</td>
-                                            <td>[[${juego.descripcion}]]</td>
+                                            <td>[[${juego.nombre}]]</td>
                                             <td>[[${juego.precio}]]</td>
                                             <td>[[${juego.existencias}]]</td>
                                             <td>[[${juego.precio*juego.existencias}]]</td>
                                             <td th:text="${juego.activo} ? 'Activa' : 'Inactiva'" />
                                             <td>[[${juego.categoria.descripcion}]]</td>
                                             <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/juego/eliminar/}+${juego.idJuego}"
-                                                   class="btn btn-danger">
+                                                                                         class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/juego/modificar/}+${juego.idJuego}"
                                                    class="btn btn-success">
@@ -168,13 +168,13 @@
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="nombre">[[#{juego.descripcion}]]</label>
+                                                    <label for="nombre">[[#{juego.nombre}]]</label>
                                                     <input type="text" class="form-control" 
                                                            name="nombre" th:field="*{nombre}"
                                                            required="true">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="consola">[[#{juego.detalle}]]</label>
+                                                    <label for="consola">[[#{juego.consola}]]</label>
                                                     <input type="text" class="form-control" 
                                                            name="consola" th:field="*{consola}"
                                                            required="true"/>
@@ -200,7 +200,7 @@
                                                            th:field="*{activo}"/>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="ruta_imagen">[[#{juego.imagen}]]</label>
+                                                    <label for="ruta_imagen">[[#{juego.ruta_imagen}]]</label>
                                                     <input class="form-control" type="file" name="imagenFile"
                                                            onchange="readURL(this);" />
                                                     <img id="blah" th:src="@{${juego.rutaImagen}}" alt="your image" height="200"/>
