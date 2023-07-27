@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class JuegoServiceImpl implements JuegoService {
-
+public class JuegoServiceImpl implements JuegoService{
+    
     //La anotación Autowired crea un único objeto sin hacer new.. y se mantiene
     @Autowired
     private JuegoDao juegoDao;
@@ -28,7 +28,7 @@ public class JuegoServiceImpl implements JuegoService {
     @Override
     @Transactional(readOnly = true)
     public Juego getJuego(Juego juego) {
-        return juegoDao.findById(juego.getId_juego()).orElse(null);
+        return juegoDao.findById(juego.getIdJuego()).orElse(null);
     }
 
     @Override
@@ -42,23 +42,25 @@ public class JuegoServiceImpl implements JuegoService {
     public void delete(Juego juego) {
         juegoDao.delete(juego);
     }
-
-    //Se implementa el metodo para recuperar los productos con una consulta ampliada
+    
+        // Se enuncia un metodo para recuperar los juegos con una consulta ampliada
     @Override
     @Transactional(readOnly = true)
     public List<Juego> buscaJuegosPorPrecioEntre(double precioInf, double precioSup){
-        return juegoDao.findByPrecioBetweenOrderByNombre(precioInf, precioSup);
-    }
-
-    @Override
-    public List<Juego> consultaJPQL(double precioInf, double precioSup) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Juego> consultaSQL(double precioInf, double precioSup) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    return juegoDao.findByPrecioBetweenOrderByNombre(precioInf, precioSup);
     }
     
+        // Se enuncia un metodo para recuperar los juegos con una consulta JPQL
+    @Override
+    @Transactional(readOnly = true)
+    public List<Juego> consultaJPQL(double precioInf, double precioSup){
+    return juegoDao.consultaJPQL(precioInf, precioSup);
+    }
     
+            // Se enuncia un metodo para recuperar los juegos con una consulta SQL
+    @Override
+    @Transactional(readOnly = true)
+    public List<Juego> consultaSQL(double precioInf, double precioSup){
+    return juegoDao.consultaSQL(precioInf, precioSup);
+    }
 }

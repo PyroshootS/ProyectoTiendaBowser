@@ -14,7 +14,7 @@ public class Juego implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_juego")
-    private long id_juego;
+    private long idJuego;
     private String nombre;
     private String consola;
     private double precio;
