@@ -50,7 +50,7 @@ public class JuegoController {
                     firebaseStorageService.cargaImagen(
                             imagenFile, 
                             "juego", 
-                            juego.getId_juego()));
+                            juego.getIdJuego()));
         }
         juegoService.save(juego);
         return "redirect:/juego/listado";

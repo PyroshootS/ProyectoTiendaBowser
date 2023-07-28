@@ -79,9 +79,9 @@ CREATE TABLE tiendabowser.rol (
 
 -- Inserta los datos
 INSERT INTO tiendabowser.usuario (id_usuario, username, password, nombre, apellidos, correo, telefono, ruta_imagen, activo) VALUES 
-(1, 'juan', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'Juan', 'Castro Mora', 'jcastro@gmail.com', '4556-8978', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Juan_Diego_Madrigal.jpg/250px-Juan_Diego_Madrigal.jpg', true),
-(2, 'rebeca', '$2a$10$GkEj.ZzmQa/aEfDmtLIh3udIH5fMphx/35d0EYeqZL5uzgCJ0lQRi', 'Rebeca', 'Contreras Mora', 'acontreras@gmail.com', '5456-8789', 'https://upload.wikimedia.org/wikipedia/commons/0/06/Photo_of_Rebeca_Arthur.jpg', true),
-(3, 'pedro', '$2a$10$koGR7eS22Pv5KdaVJKDcge04ZB53iMiw76.UjHPY.XyVYlYqXnPbO', 'Pedro', 'Mena Loria', 'lmena@gmail.com', '7898-8936', 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eduardo_de_Pedro_2019.jpg/480px-Eduardo_de_Pedro_2019.jpg?20200109230854', true);
+(1, 'oscar', '$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.', 'Oscar', 'Reina V', 'oscarg@gmail.com', '4556-8978', 'https://i.pinimg.com/1200x/06/ce/86/06ce86d3a2b00678ab7b6b06ffe776de.jpg', true),
+(2, 'adri', '$2a$10$GkEj.ZzmQa/aEfDmtLIh3udIH5fMphx/35d0EYeqZL5uzgCJ0lQRi', 'Adri', 'Viquez J', 'adrigs@gmail.com', '5456-8789', 'https://tierragamer.com/wp-content/uploads/2021/03/zerotwo01.jpg', true),
+(3, 'ron', '$2a$10$koGR7eS22Pv5KdaVJKDcge04ZB53iMiw76.UjHPY.XyVYlYqXnPbO', 'Ronald', 'Mendoza W', 'ronaldg@gmail.com', '7898-8936', 'https://m.media-amazon.com/images/I/41NdRO84PYL._SX300_SY300_QL70_FMwebp_.jpg', true);
 
 INSERT INTO tiendabowser.categoria (id_categoria, descripcion, ruta_imagen, activo) VALUES 
 (1, 'Aventura', 'https://d2ulnfq8we0v3.cloudfront.net/cdn/695858/media/catalog/category/MONITORES.jpg', true),
@@ -120,4 +120,4 @@ INSERT INTO tiendabowser.rol (id_rol, nombre, id_usuario) VALUES
 (3, 'ROLE_USER', 1),
 (4, 'ROLE_VENDEDOR', 2),
 (5, 'ROLE_USER', 2),
-(6, 'ROLE_USER', 3);
+(6, 'ROLE_USER', 3)
