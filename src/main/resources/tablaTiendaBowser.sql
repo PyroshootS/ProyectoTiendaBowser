@@ -93,7 +93,10 @@ INSERT INTO tiendabowser.juego (id_juego, id_categoria, nombre, consola, precio,
 (1, 1, 'Elden Ring', 'PS4', 23000, 5, 'https://c.pxhere.com/images/ec/fd/d67b367ed6467eb826842ac81d3b-1453591.jpg!d', true),
 (2, 2, 'Animal Crossing', 'Nintendo Switch', 27000, 2, 'https://c.pxhere.com/photos/17/77/Art_Calendar_Cc0_Creative_Design_High_Resolution_Mac_Stock-1622403.jpg!d', true),
 (3, 3, 'Life is Strange', 'XBOX', 24000, 5, 'https://www.trustedreviews.com/wp-content/uploads/sites/54/2022/09/LG-OLED-Flex-7-scaled.jpg', true),
-(4, 4, 'Contrabant Police', 'PC', 27600, 2, 'https://www.lg.com/us/images/tvs/md08003300/gallery/D-01.jpg', true);
+(4, 4, 'Contrabant Police', 'PC', 27600, 2, 'https://www.lg.com/us/images/tvs/md08003300/gallery/D-01.jpg', true),
+(5, 5, 'Persona 5', 'PS5', 25000, 2, 'https://media.discordapp.net/attachments/1076136998408044605/1118238399862673428/730865220328.jpg', true),
+(6, 6, 'Read Dead II', 'PS5', 35000, 2, 'https://media.discordapp.net/attachments/1076136998408044605/1118238399229345893/710425478949.jpg', true),
+(7, 7, 'NFS', 'PS5', 45000, 2, 'https://media.discordapp.net/attachments/1076136998408044605/1118231628540559370/014633747911.jpg', true);
 
 INSERT INTO tiendabowser.factura (id_factura, id_usuario, fecha, total, estado) VALUES
 (1, 1, '2022-01-05', 211560, 2),
