@@ -2,7 +2,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:fragment="head">
-        <title>TiendaBowser</title>
+        <title>Tienda Bowser</title>
         <meta charset="UTF-8"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
@@ -21,12 +21,11 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <ul class="navbar-nav" sec:authorize="hasRole('ROLE_USER')">
+                        <ul class="navbar-nav" sec:authorize="hasRole('ROLE_VENDEDOR')">
                             <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/juego/listado}">[[#{plantilla.juegos}]]</a></li>                     
-                            <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/producto/listado}">Productos</a></li>                     
-                            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_USER')">
-                                <a class="nav-link dropdown-toggle" 
+                            <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/juego/listado}">[[#{plantilla.juegos}]]</a></li>                           
+                            <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <a class="nav-link dropdown-toggle text-white" 
                                    data-bs-toggle="dropdown" 
                                    href="#" 
                                    role="button" 
@@ -84,7 +83,7 @@
                 </div>
             </section>
             <div class="text-center">
-                <h3>Juegos</h3>
+                <h3></h3>
             </div>
         </header>
 

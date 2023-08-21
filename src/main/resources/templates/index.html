@@ -2,11 +2,26 @@
       xmlns:th="http://www.thymeleafw3.org/1999/xhtml"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>TiendaBowser</title>
+    <link rel="stylesheet" href="Estilo.css">
+    <title>Tienda Bowser</title>
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"> </header> 
-        
-        <footer th:replace="~{layout/plantilla :: footer}"> </footer> 
-    </body>
-</html>
+        <section th:fragment="listadoJuegos" id="juegos">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Promociones</h4>
+                            </div>
+                            <div class="slider">
+                                <ul>
+                                    <li ><img src="https://media.discordapp.net/attachments/1076136998408044605/1118238399862673428/730865220328.jpg" alt=""/></li>
+                                    <li ><img src="https://media.discordapp.net/attachments/1076136998408044605/1118238399229345893/710425478949.jpg" alt=""/></li>
+                                    <li ><img src="https://media.discordapp.net/attachments/1076136998408044605/1118231628540559370/014633747911.jpg" alt=""/></li>
+                                </ul>
+                            </div>
+                            <footer th:replace="~{layout/plantilla :: footer}"> </footer> 
+                             </body>
+                            </html>

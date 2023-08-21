@@ -1,5 +1,6 @@
 package com.TiendaBowser;
 
+
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -77,7 +78,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/registro/**", "/js/**", "/webjars/**")
                 .permitAll()
                 .requestMatchers(
-                        "/juego/nuevo", "/juego/guardar",
+                        "/juego/nuevo", "/juego/guardar","/juegos/listado",
                         "/juego/modificar/**", "/juego/eliminar/**",
                         "/categoria/nuevo", "/categoria/guardar",
                         "/categoria/modificar/**", "/categoria/eliminar/**",
@@ -99,27 +100,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         return http.build();
     }
 
-    /* El siguiente método se utiliza para completar la clase no es 
-    realmente funcional, la próxima semana se reemplaza con usuarios de BD */
-//    @Bean
-//    public UserDetailsService users() {
-//        UserDetails admin = User.builder()
-//                .username("juan")
-//                .password("{noop}123")
-//                .roles("USER", "VENDEDOR", "ADMIN")
-//                .build();
-//        UserDetails sales = User.builder()
-//                .username("rebeca")
-//                .password("{noop}456")
-//                .roles("USER", "VENDEDOR")
-//                .build();
-//        UserDetails user = User.builder()
-//                .username("pedro")
-//                .password("{noop}789")
-//                .roles("USER")
-//                .build();
-//        return new InMemoryUserDetailsManager(user, sales, admin);
-//    }
+
     
     
     @Autowired UserDetailsService userDetailsService;
@@ -131,3 +112,4 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 }
+
