@@ -28,7 +28,7 @@ public class CarritoController {
     @Autowired
     private JuegoService juegoService;
     
-    @GetMapping("/listado")
+    @GetMapping("/")
     public String listado(Model model) {
         
         var juegos = juegoService.getJuegos(false);

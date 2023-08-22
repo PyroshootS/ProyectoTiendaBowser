@@ -46,7 +46,7 @@ public class JuegoController {
             @RequestParam("imagenFile") MultipartFile imagenFile) {        
         if (!imagenFile.isEmpty()) {
             juegoService.save(juego);
-            juego.setRuta_imagen(
+            juego.setRutaImagen(
                     firebaseStorageService.cargaImagen(
                             imagenFile, 
                             "juego", 

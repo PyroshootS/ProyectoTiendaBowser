@@ -19,7 +19,7 @@ public class Item extends Juego {
         super.setPrecio(juego.getPrecio());
         super.setExistencias(juego.getExistencias());
         super.setActivo(juego.isActivo());
-        super.setRuta_imagen(juego.getRuta_imagen());
+        super.setRutaImagen(juego.getRutaImagen());
         this.cantidad = 0;
     }
 }
