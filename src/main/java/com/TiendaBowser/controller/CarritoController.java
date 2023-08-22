@@ -103,55 +103,5 @@ public class CarritoController {
         return "redirect:/";
     }
     
-    @Autowired
-    private UsuarioService usuarioService;
 
-    @Autowired
-    private FacturaDao facturaDao;
-    @Autowired
-    private VentaDao ventaDao;
-    @Autowired
-    private JuegoDao productoDao;
-
-    public void facturar() {
-        System.out.println("Facturando");
-
-        //Se obtiene el usuario autenticado
-        String username;
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal instanceof UserDetails userDetails) {
-            username = userDetails.getUsername();
-        } else {
-            username = principal.toString();
-        }
-
-        if (username.isBlank()) {
-            return;
-        }
-
-        Usuario usuario = usuarioService.getUsuarioPorUsername(username);
-
-        if (usuario == null) {
-            return;
-        }
-
-        Factura factura = new Factura(usuario.getIdUsuario());
-        factura = facturaDao.save(factura);
-
-        double total = 0;
-        for (Item i : listaItems) {
-            System.out.println("Juego: " + i.getNombre()
-                    + " Cantidad: " + i.getCantidad()
-                    + " Total: " + i.getPrecio() * i.getCantidad());
-            Venta venta = new Venta(factura.getIdFactura(), i.getIdJuego(), i.getPrecio(), i.getCantidad());
-            ventaDao.save(venta);
-            Juego producto = productoDao.getReferenceById(i.getIdJuego());
-            producto.setExistencias(producto.getExistencias()-i.getCantidad());
-            productoDao.save(producto);
-            total += i.getPrecio() * i.getCantidad();
-        }
-        factura.setTotal(total);
-        facturaDao.save(factura);
-        listaItems.clear();
-    }
 }

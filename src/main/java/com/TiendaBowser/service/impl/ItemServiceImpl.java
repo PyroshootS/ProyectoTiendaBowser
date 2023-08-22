@@ -1,6 +1,7 @@
 package com.TiendaBowser.service.impl;
 
 
+import com.TiendaBowser.dao.FacturaDao;
 import com.TiendaBowser.domain.Juego;
 import com.TiendaBowser.domain.Usuario;
 import com.TiendaBowser.domain.Item;
@@ -12,6 +13,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import com.TiendaBowser.dao.JuegoDao;
+import com.TiendaBowser.dao.VentaDao;
+import com.TiendaBowser.domain.Factura;
+import com.TiendaBowser.domain.Venta;
+import com.TiendaBowser.service.UsuarioService;
 
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -26,7 +31,7 @@ public class ItemServiceImpl implements ItemService {
     public void save(Item item) {
         boolean existe = false;
         for (Item i : listaItems) {
-            //Busca si ya existe el producto en el carrito
+            //Busca si ya existe el juego en el carrito
             if (Objects.equals(i.getIdJuego(), item.getIdJuego())) {
                 //Valida si aún puede colocar un item adicional -segun existencias-
                 if (i.getCantidad() < item.getExistencias()) {
@@ -37,13 +42,13 @@ public class ItemServiceImpl implements ItemService {
                 break;
             }
         }
-        if (!existe) {//Si no está el producto en el carrito se agrega cantidad =1.            
+        if (!existe) {//Si no está el juego en el carrito se agrega cantidad =1.            
             item.setCantidad(1);
             listaItems.add(item);
         }
     }
 
-    //Se usa para eliminar un producto del carrito
+    //Se usa para eliminar un juego del carrito
     @Override
     public void delete(Item item) {
         var posicion = -1;
@@ -60,7 +65,7 @@ public class ItemServiceImpl implements ItemService {
         }
     }
 
-    //Se obtiene la información de un producto del carrito... para modificarlo
+    //Se obtiene la información de un juego del carrito... para modificarlo
     @Override
     public Item get(Item item) {
         for (Item i : listaItems) {
@@ -71,7 +76,7 @@ public class ItemServiceImpl implements ItemService {
         return null;
     }
 
-    //Se usa en la página para actualizar la cantidad de productos
+    //Se usa en la página para actualizar la cantidad de juegos
     @Override
     public void actualiza(Item item) {
         for (Item i : listaItems) {
@@ -83,8 +88,56 @@ public class ItemServiceImpl implements ItemService {
     }    
 
 
+    @Autowired
+    private UsuarioService usuarioService;
+
+    @Autowired
+    private FacturaDao facturaDao;
+    @Autowired
+    private VentaDao ventaDao;
+    @Autowired
+    private JuegoDao juegoDao;
+
     @Override
     public void facturar() {
-      //Se condifica al final...
+        System.out.println("Facturando");
+
+        //Se obtiene el usuario autenticado
+        String username;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails userDetails) {
+            username = userDetails.getUsername();
+        } else {
+            username = principal.toString();
+        }
+
+        if (username.isBlank()) {
+            return;
+        }
+
+        Usuario usuario = usuarioService.getUsuarioPorUsername(username);
+
+        if (usuario == null) {
+            return;
+        }
+
+        Factura factura = new Factura(usuario.getIdUsuario());
+        factura = facturaDao.save(factura);
+
+        double total = 0;
+        for (Item i : listaItems) {
+            System.out.println("Juego: " + i.getNombre()
+                    + " Cantidad: " + i.getCantidad()
+                    + " Total: " + i.getPrecio() * i.getCantidad());
+            Venta venta = new Venta(factura.getIdFactura(), i.getIdJuego(), i.getPrecio(), i.getCantidad());
+            ventaDao.save(venta);
+            Juego juego = juegoDao.getReferenceById(i.getIdJuego());
+            juego.setExistencias(juego.getExistencias()-i.getCantidad());
+            juegoDao.save(juego);
+            total += i.getPrecio() * i.getCantidad();
+        }
+        factura.setTotal(total);
+        facturaDao.save(factura);
+        listaItems.clear();
     }
 }
