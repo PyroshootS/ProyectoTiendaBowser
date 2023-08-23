@@ -23,9 +23,9 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <ul class="navbar-nav" sec:authorize="hasRole('ROLE_VENDEDOR')">
                             <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                            <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>                           
+                            <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/juego/listado}">[[#{plantilla.juegos}]]</a></li>                           
                             <li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
-                                <a class="nav-link dropdown-toggle" 
+                                <a class="nav-link dropdown-toggle text-white" 
                                    data-bs-toggle="dropdown" 
                                    href="#" 
                                    role="button" 
@@ -34,6 +34,7 @@
                                     <li><a class="dropdown-item"  th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
                                     <li><a class="dropdown-item"  th:href="@{/pruebas/listado}">[[#{plantilla.asociaciones}]]</a></li>
                                     <li><a class="dropdown-item"  th:href="@{/pruebas/listado2}">[[#{plantilla.consultas}]]</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/reportes/principal}">[[#{plantilla.reportes}]]</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -83,12 +84,9 @@
                 </div>
             </section>
             <div class="text-center">
-                <h3>Productos</h3>
+                <h3></h3>
             </div>
         </header>
-
-
-
         <footer th:fragment="footer"
                 class="bg-dark text-white mt-5 p-2">
             <div class="container">
@@ -99,3 +97,4 @@
         </footer>
          </body>
 </html>
+

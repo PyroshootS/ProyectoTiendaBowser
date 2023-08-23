@@ -1,8 +1,8 @@
 package com.TiendaBowser.controller;
 
-import com.TiendaBowser.domain.Producto;
+import com.TiendaBowser.domain.Juego;
 import com.TiendaBowser.service.CategoriaService;
-import com.TiendaBowser.service.ProductoService;
+import com.TiendaBowser.service.JuegoService;
 import com.TiendaBowser.service.FirebaseStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/producto")
-public class ProductoController {
+@RequestMapping("/juego")
+public class JuegoController {
 
     @Autowired
-    private ProductoService productoService;
+    private JuegoService juegoService;
     
     @Autowired
     private CategoriaService categoriaService;
@@ -28,47 +28,47 @@ public class ProductoController {
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
         
-        var productos = productoService.getProductos(false);
-        model.addAttribute("productos", productos);
-        model.addAttribute("totalProductos", productos.size());
-        return "/producto/listado";
+        var juegos = juegoService.getJuegos(false);
+        model.addAttribute("juegos", juegos);
+        model.addAttribute("totalJuegos", juegos.size());
+        return "/juego/listado";
     }
     @GetMapping("/nuevo")
-    public String productoNuevo(Producto producto) {
-        return "/producto/modifica";
+    public String juegoNuevo(Juego juego) {
+        return "/juego/modifica";
     }
 
     @Autowired
     private FirebaseStorageService firebaseStorageService;
     
     @PostMapping("/guardar")
-    public String productoGuardar(Producto producto,
+    public String juegoGuardar(Juego juego,
             @RequestParam("imagenFile") MultipartFile imagenFile) {        
         if (!imagenFile.isEmpty()) {
-            productoService.save(producto);
-            producto.setRutaImagen(
+            juegoService.save(juego);
+            juego.setRutaImagen(
                     firebaseStorageService.cargaImagen(
                             imagenFile, 
-                            "producto", 
-                            producto.getIdProducto()));
+                            "juego", 
+                            juego.getIdJuego()));
         }
-        productoService.save(producto);
-        return "redirect:/producto/listado";
+        juegoService.save(juego);
+        return "redirect:/juego/listado";
     }
 
-    @GetMapping("/eliminar/{idProducto}")
-    public String productoEliminar(Producto producto) {
-        productoService.delete(producto);
-        return "redirect:/producto/listado";
+    @GetMapping("/eliminar/{idJuego}")
+    public String juegoEliminar(Juego juego) {
+        juegoService.delete(juego);
+        return "redirect:/juego/listado";
     }
 
-    @GetMapping("/modificar/{idProducto}")
-    public String productoModificar(Producto producto, Model model) {
+    @GetMapping("/modificar/{idJuego}")
+    public String juegoModificar(Juego juego, Model model) {
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
         
-        producto = productoService.getProducto(producto);
-        model.addAttribute("producto", producto);
-        return "/producto/modifica";
+        juego = juegoService.getJuego(juego);
+        model.addAttribute("juego", juego);
+        return "/juego/modifica";
     }
 }
