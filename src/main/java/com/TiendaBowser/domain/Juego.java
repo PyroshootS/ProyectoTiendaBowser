@@ -19,7 +19,7 @@ public class Juego implements Serializable {
     private String consola;
     private double precio;
     private int existencias;
-    private String ruta_imagen;
+    private String rutaImagen;
     private boolean activo;
 
     @ManyToOne
