@@ -10,14 +10,14 @@
         <div class="container">
             <div class="row"></div>
             <div class="row row-cols-6" >
-                <a th:href="@{/}" class="btn btn-primary">
+                <a th:href="@{/}" class="btn btn-dark">
                     <i class='fas fa-reply'></i> [[#{accion.regresar}]]</a>
             </div>
             <div class="row"></div>
             <div class="row row-cols-3">
                 <div class="card">
                     <div class="card-header text-center">
-                        Reporte juegos
+                        <h3>Reporte Juegos</h3>
                     </div>
                     <div class="card-body">
                         <a th:href="@{/reportes/juegos?tipo=vPdf}" class="btn btn-primary">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header text-center">
-                        Reporte ventas
+                         <h3>Reporte Ventas </h3>
                     </div>
                     <div class="card-body">
                         <a th:href="@{/reportes/ventas?tipo=vPdf}" class="btn btn-primary">
@@ -55,57 +55,23 @@
                 </div>                
                 <div class="card">
                     <div class="card-header text-center">
-                        Ventas totales
+                         <h3>Reporte Usuarios </h3>
                     </div>
                     <div class="card-body">
-                        <div class="card-header">
-                            <h4>Ventas Totales</h4>
-                        </div>
-                        <div class="card-body">
-                            <form method="GET"
-                                  th:action="@{/reportes/ventasTotales}" 
-                                  class="was-validated">
-
-                                <div class="mb-3">
-                                    <label for="fechaInicio">Fecha Inicio</label>
-                                    <input type="date" class="form-control" 
-                                           name="fechaInicio"
-                                           th:value="${fechaInicio}"
-                                           required="true"/>
-                                </div>                                
-                                <div class="mb-3">
-                                    <label for="fechaFin">Fecha Fin</label>
-                                    <input type="date" class="form-control" 
-                                           name="fechaFin"
-                                           th:value="${fechaFin}"
-                                           required="true"/>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3 d-grid">
-                                        <button name="tipo" value="vPdf" type="submit" class="btn btn-primary">
-                                            <i class='fas fa-eye'></i><i class='fas fa-file-pdf'></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-3 d-grid">    
-                                        <button name="tipo" value="Pdf" type="submit" class="btn btn-success">
-                                            <i class='fas fa-download'></i><i class='fas fa-file-pdf'></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-3 d-grid">    
-                                        <button name="tipo" value="Xls" type="submit" class="btn btn-warning">
-                                            <i class='fas fa-download'></i><i class='fas fa-file-excel'></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-3 d-grid">    
-                                        <button name="tipo" value="Xls" type="submit" class="btn btn-danger">
-                                            <i class='fas fa-download'></i><i class='fas fa-file-csv'></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        <a th:href="@{/reportes/usuarios?tipo=vPdf}" class="btn btn-primary">
+                            <i class='fas fa-eye'></i><i class='fas fa-file-pdf'></i>
+                        </a>
+                        <a th:href="@{/reportes/usuarios?tipo=Pdf}" class="btn btn-success">
+                            <i class='fas fa-download'></i><i class='fas fa-file-pdf'></i>
+                        </a>
+                        <a th:href="@{/reportes/usuarios?tipo=Xls}" class="btn btn-warning">
+                            <i class='fas fa-download'></i><i class='fas fa-file-excel'></i>
+                        </a>
+                        <a th:href="@{/reportes/usuarios?tipo=Csv}" class="btn btn-danger">
+                            <i class='fas fa-download'></i><i class='fas fa-file-csv'></i>
+                        </a>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
 

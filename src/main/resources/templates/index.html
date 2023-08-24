@@ -7,7 +7,16 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"> </header> 
+        
         <section th:fragment="listadoJuegos" id="juegos">
+             <div class="container py-2 mb-1 bg-white text-white ">
+                    </div>
+        <section th:fragment="listadoJuegos" id="juegos">
+             <div class="container py-2 mb-1 bg-dark text-white ">
+                        <div class="text-center">
+                            <h1>[[#{index.promociones}]]</h1>
+                        </div>
+                    </div>
 
             <!-- Start Banner Hero -->
             <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -44,9 +53,6 @@
                                         <h1 class="h1 text-danger"><b>Red Dead Redemption II</b></h1>
                                         <h3 class="h3 text-muted"><s>₡40000</s></h3>
                                         <h2>₡35000</h2>
-                                          <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -70,10 +76,10 @@
                     </div>
                 </div>
                 <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-                    <i class="fas fa-chevron-left fa-6x text-primary m-3"></i>
+                    <i class="fas fa-chevron-left fa-6x text-danger m-3"></i>
                 </a>
                 <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-                    <i class="fas fa-chevron-right fa-6x text-primary m-3"></i>
+                    <i class="fas fa-chevron-right fa-6x text-danger m-3"></i>
                 </a>
             </div>
             <!-- End Banner Hero -->

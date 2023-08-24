@@ -84,16 +84,16 @@ INSERT INTO tiendabowser.usuario (id_usuario, username, password, nombre, apelli
 (3, 'ron', '$2a$10$koGR7eS22Pv5KdaVJKDcge04ZB53iMiw76.UjHPY.XyVYlYqXnPbO', 'Ronald', 'Mendoza W', 'ronaldg@gmail.com', '7898-8936', 'https://m.media-amazon.com/images/I/41NdRO84PYL._SX300_SY300_QL70_FMwebp_.jpg', true);
 
 INSERT INTO tiendabowser.categoria (id_categoria, descripcion, ruta_imagen, activo) VALUES 
-(1, 'Aventura', 'https://d2ulnfq8we0v3.cloudfront.net/cdn/695858/media/catalog/category/MONITORES.jpg', true),
-(2, 'Terror', 'https://cnnespanol.cnn.com/wp-content/uploads/2022/04/teclado-mecanico.jpg', true),
-(3, 'RPG', 'https://static-geektopia.com/storage/thumbs/784x311/788/7884251b/98c0f4a5.webp', true),
-(4, 'Carreras', 'https://www.monumental.co.cr/wp-content/uploads/2022/03/X4J2Z6XQUZDO7O6QTDF4DIJ3VE.jpeg', false);
+(1, 'Aventura', 'https://i.blogs.es/ab965a/nintendoswitch_tlozbreathofthewild_artwork_illustration_01.0/1366_2000.jpeg', true),
+(2, 'Terror', 'https://ipadizate.com/hero/2021/12/apertura-mejores-juegos-terror-iphone-ipad.jpg', true),
+(3, 'RPG', 'https://ipadizate.com/hero/2023/03/los-10-mejores-juegos-rpg-para-iphone-y-ipad-de-la-app-store-1.jpg', true),
+(4, 'Carreras', 'https://hardzone.es/app/uploads-hardzone.es/2023/02/juegos-coches.jpg', false);
 
 INSERT INTO tiendabowser.juego (id_juego, id_categoria, nombre, consola, precio, existencias, ruta_imagen, activo) VALUES
 (1, 1, 'Elden Ring', 'PS4', 23000, 5, 'https://images-ext-2.discordapp.net/external/7Cy4fRAYMHFbJc3JHmFbmKyH2a2TM8hji_zdyrUNnWo/https/playtecgames.com/wp-content/uploads/2022/04/ELDENRINGps4le.jpg?width=518&height=702', true),
 (2, 2, 'Animal Crossing', 'Nintendo Switch', 27000, 2, 'https://images-ext-2.discordapp.net/external/5QsB-Ff_hYSKNaxq6O8O1ofQ4GOXhBbKxyl5NBR7gPc/%3Fv%3D1650999119/https/tecnopro.cl/cdn/shop/products/JuegosAnimalCrossingNewHorizonsStandardEditionNintendoSwitchFisico-01_700x700.jpg', true),
 (3, 3, 'Life is Strange', 'XBOX', 24000, 5, 'https://images-ext-1.discordapp.net/external/00SiA6No-nkRwc9P6oWk28MxMJYo_VzZAixeVwo-NxU/https/images-na.ssl-images-amazon.com/images/I/81YtTaEYd3L._AC_UL600_SR600%2C600_.jpg', true),
-(4, 4, 'Contrabant Police', 'PC', 27600, 2, 'https://media.discordapp.net/attachments/1076136998408044605/1144327030675099738/capsule_616x353.png', true),
+(4, 4, 'Contrabant Police', 'PC', 27600, 2, 'https://i.3djuegos.com/juegos/17740/contraband_police/fotos/ficha/contraband_police-5797835.jpg', true),
 (5, 1, 'Persona 5', 'PS5', 25000, 2, 'https://media.discordapp.net/attachments/1076136998408044605/1118238399862673428/730865220328.jpg', true),
 (6, 1, 'Red Dead Redemption II', 'PS5', 35000, 2, 'https://media.discordapp.net/attachments/1076136998408044605/1118238399229345893/710425478949.jpg', true),
 (7, 4, 'NFS Unbound', 'PS5', 45000, 2, 'https://media.discordapp.net/attachments/1076136998408044605/1118231628540559370/014633747911.jpg', true);

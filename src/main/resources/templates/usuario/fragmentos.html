@@ -12,7 +12,7 @@
                     <div class="col-md-3">   
                         <button 
                             type="button" 
-                            class="btn btn-primary btn-block" 
+                            class="btn btn-danger btn-block" 
                             data-bs-toggle="modal" 
                             data-bs-target="#agregarUsuario">
                             <i class="fas fa-plus"></i> [[#{usuario.agregar}]]
@@ -31,7 +31,7 @@
                  aria-hidden="true">
                 <div class="modal-dialog modal-md">
                     <div class="modal-content">
-                        <div class="modal-header bg-info text-white">
+                        <div class="modal-header bg-danger text-white">
                             <h5 class="modal-title">[[#{usuario.agregar}]]</h5>
                             <button type="button" 
                                     class="btn-close" 
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-primary" type="submit">Guardar</button>
+                                <button class="btn btn-danger" type="submit">Guardar</button>
                             </div>
                         </form>
                     </div>
@@ -97,7 +97,7 @@
                                             <th>[[#{usuario.username}]]</th>
                                             <th>[[#{usuario.nombre}]]</th>
                                             <th>[[#{usuario.apellidos}]]</th>
-                                            <th>[[#{usuario.imagen}]]</th>
+                                            <th></th>
                                             <th></th></tr>
                                     </thead>
                                     <tbody>
@@ -111,7 +111,7 @@
                                                    class="btn btn-danger">
                                                     <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
                                                 <a th:href="@{/usuario/modificar/}+${usuario.idUsuario}"
-                                                   class="btn btn-success">
+                                                   class="btn btn-dark">
                                                     <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
                                     </tbody>
                                 </table>
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="card text-center bg-success text-white mb-3">
+                        <div class="card text-center bg-danger text-white mb-3">
                             <div class="card-body">
                                 <h3>[[#{usuario.total}]]</h3>
                                 <h4 class="fs-2"><i class="fas fa-users"></i> [[${totalUsuarios}]]</h4>
@@ -197,7 +197,7 @@
             <div class="container py-4 mb-4 bg-light">
                 <div class="row">
                     <div class="col-md-4 d-grid">
-                        <a th:href="@{/usuario/listado}" class="btn btn-primary">
+                        <a th:href="@{/usuario/listado}" class="btn btn-dark">
                             <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                         </a>
                     </div>
@@ -208,7 +208,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 d-grid" sec:authorize="hasRole('ROLE_ADMIN')">
-                        <button type="submit" class="btn btn-success">
+                        <button type="submit" class="btn btn-dark">
                             <i class="fas fa-check"></i> [[#{accion.guardar}]]
                         </button>
                     </div>
